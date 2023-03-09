@@ -16,14 +16,14 @@ st.title('China Property Data Tracker')
 st.markdown('''
 This is a minimum viable product (MVP) app to show the latest china property transaction trend. I scraped data from 4 source:
 
-Offical Data:
+Offical Data (scrape data from 1/1/2020 - 7/3/2023):
 
 1. 深圳市住房和建设局 http://zjj.sz.gov.cn/xxgk/ztzl/pubdata/index.html 
 2. 武汉市住房和建设局 http://fgj.wuhan.gov.cn/xxgk/xxgkml/sjfb/mrxjspfcjtjqk/
 
 P.S. Offical Data is up to 7/3/2023
 
-Platform Data:
+Platform Data (scape all listing in 100 pages):
 \n
 
 3. 深圳链家网 https://sz.lianjia.com/
