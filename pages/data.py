@@ -13,7 +13,7 @@ sidebar_option = st.sidebar.selectbox("數據來源", ('住建部官方數據',
 if sidebar_option == '住建部官方數據':
     city_option = st.sidebar.selectbox("城市", ('深圳','武汉'))
     if city_option == '深圳':
-        df = pd.read_csv('./shenzhenData.csv')
+        df = pd.read_csv('./SZOffical.csv')
         df['日期'] = pd.to_datetime(df['日期'])
         df_week = df.groupby([df['日期'].dt.year, df['weekofyear']]).sum()
         df_week.index.names = ['year', 'week']
@@ -59,7 +59,7 @@ if sidebar_option == '住建部官方數據':
         st.plotly_chart(fig2)
     elif city_option == '武汉':
         pd.options.display.float_format = '{:.2%}'.format
-        df_wh = pd.read_csv('./wuhanData.csv')
+        df_wh = pd.read_csv('./WHOffical.csv')
         df_wh = df_wh[['date', 'area', 'volume']]
         df_wh = df_wh.sort_values('date', ascending=False)
         df_wh['date'] = pd.to_datetime(df_wh['date'])
@@ -141,8 +141,8 @@ elif sidebar_option == '鏈家數據':
 
     st.header('Summary')
     st.dataframe(df_summary)
-    text = 'Assume all the uniquely delisted data ({}unit, {}平方米) are sold'
-    st.text(text.format(df_summary.iloc[0,0], round(df_summary.iloc[1,0])))
+    text = "If today's data does not have a record of yesterday's data, assume that the missing part ({}unit, {}平方米) has been sold"
+    st.markdown(text.format(df_summary.iloc[0,0], round(df_summary.iloc[1,0])))
 
     st.header('2023-03-09')
     st.dataframe(df_new)
